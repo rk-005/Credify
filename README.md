@@ -104,7 +104,7 @@ User authorizes Credify to connect with their MetaMask wallet.
 
 User uploads an identity document to be processed using AI-based extraction.
 
-<img width="1051" height="633" alt="3i" src="https://github.com/user-attachments/assets/7913eacc-df45-4a94-9b46-2da3fe2bfbf3" />
+<img width="500" height="500" alt="3i" src="https://github.com/user-attachments/assets/7913eacc-df45-4a94-9b46-2da3fe2bfbf3" />
 
 
 
@@ -121,7 +121,8 @@ Google Cloud Vision extracts identity details such as name, DOB, and ID number.
 
 User confirms the transaction in MetaMask to securely anchor extracted data on the blockchain.
 
-<img width="500" height="500" alt="4" src="https://github.com/user-attachments/assets/48994bfc-892f-454c-a501-f6ba64ec9a51" /
+<img width="500" height="500" alt="4" src="https://github.com/user-attachments/assets/28bf2a3c-9952-4d9a-a00f-67e3eb2ba967" />
+
 
 
 6️⃣ Data Secured on Blockchain
