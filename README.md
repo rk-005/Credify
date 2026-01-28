@@ -1,143 +1,143 @@
-🛡️ TrustChain
+🛡️ Credify
+Decentralized Identity Verification using AI & Blockchain
 
-Decentralized eKYC Verification Platform using Blockchain
+Credify is a decentralized electronic Know Your Customer (eKYC) platform that combines AI-powered document extraction with blockchain-based verification.
+It enables users to securely verify identity documents and optionally anchor proofs on-chain using MetaMask — ensuring transparency, immutability, and user ownership of identity data.
 
-TrustChain is a decentralized electronic Know Your Customer (eKYC) platform built on Ethereum using Hardhat, Solidity, React (Vite), and MetaMask.
-It allows users to register their KYC data on-chain and enables authorized verifiers to verify or reject KYC requests in a transparent and tamper-proof way.
+The project is built with a modern React (Vite) frontend, Ethereum smart contracts (Hardhat + Solidity), and MetaMask integration.
+For demo and hackathon purposes, the frontend is deployed live on Vercel with a seamless UX.
+
+🌍 Live Demo (Frontend)
+
+🔗 Live URL:
+👉 https://credify-eta.vercel.app?_vercel_share=YRLJtKe8R61cKCFMzC6gZC3QzACECc2a
+
+The live demo showcases the full UI flow (wallet connection, ID upload, AI extraction, and blockchain-secure step).
+Smart contracts are developed separately and can be run locally using Hardhat.
 
 🚀 Features
 
-🔐 Decentralized KYC registration
+🔐 Decentralized KYC workflow
 
-🧾 On-chain KYC status tracking
+🧾 AI-based identity document text extraction
 
-👮 Verifier-based approval/rejection
+🧠 Tamper-proof verification concept using blockchain
 
 🦊 MetaMask wallet integration
 
-⚡ Local blockchain using Hardhat
+🔗 Ethereum smart contracts (Hardhat)
 
-🌐 Modern React UI (Vite)
+⚡ Modern React UI with Vite
 
-🏗️ Tech Stack
-Backend / Blockchain
-
-1)Solidity
-
-2)Hardhat
-
-3)Ethers.js
-
-4)TypeScript
-
-5)Frontend
-
-6)React
-
-7)Vite
-
-8)Ethers.js
-
-9)MetaMask
+🌐 Production deployment on Vercel
 
 
 📁 Project Structure
 
-<img width="300" height="300" alt="image" src="https://github.com/user-attachments/assets/6bd4b73d-5c66-4803-8c6d-733027dee4b9" />
+<img width="524" height="386" alt="image" src="https://github.com/user-attachments/assets/08c69adb-0399-4bc5-b774-27a7c0706e90" />
 
 
+🧰 Tech Stack
+🔗 Blockchain / Backend
 
-⚙️ Setup & Run Locally
-1️⃣ Clone the repository
-git clone https://github.com/rk-005/TrustChain.git
-cd TrustChain
+Solidity
 
-2️⃣ Start local Hardhat blockchain
-cd BlockchainEKYC
-npx hardhat node
+Hardhat
 
+Ethers.js
 
-📌 This starts a local blockchain at:
+TypeScript
 
-http://127.0.0.1:8545
+🎨 Frontend
 
-3️⃣ Deploy smart contracts
+React
 
-Open a new terminal:
+Vite
 
-cd BlockchainEKYC
-npx hardhat run scripts/deploy.ts --network localhost
+Ethers.js
 
+MetaMask
 
-✅ Contract addresses will be displayed in the terminal.
+☁️ Deployment
 
-4️⃣ Start the frontend
+Vercel (Frontend)
 
-Open another terminal:
+⚙️ Run Locally
+git clone https://github.com/rk-005/Credify.git
+cd Credify
 
-cd BlockchainEKYC-UI
-npm install
-npm run dev
+🦊 MetaMask Configuration 
+(Please note user needs to have a Metamask account for completing any type of transaction in a Blockchain.)
 
+Add a custom network in MetaMask:
 
-🌐 App runs at:
-
-http://localhost:5173
-
-5️⃣ MetaMask Configuration
-
-Network: Hardhat Local
+Network Name: Hardhat Local
 
 RPC URL: http://127.0.0.1:8545
 
 Chain ID: 31337
 
-Import any private key shown by Hardhat node
+Currency Symbol: ETH
 
 🖼️ Application Screenshots
 
 
 
-🔹 Hardhat Local Blockchain Running
+1️⃣ Landing Page – Connect Wallet
 
-<img width="500" height="500" alt="B1" src="https://github.com/user-attachments/assets/b85c7e58-c978-434c-b60f-cf01210b107a" />
+Initial entry point where users begin the verification flow by connecting their MetaMask wallet.
 
-
-
-🔹 Smart Contract Deployment
-
-<img width="500" height="500" alt="B2" src="https://github.com/user-attachments/assets/e030f9a0-c55b-439f-837c-6623203e6d0f" />
+<img width="500" height="500" alt="image 1" src="https://github.com/user-attachments/assets/c6b02a3e-cf0b-4f4f-aae4-45ef6a02408c" />
 
 
 
-🔹 Frontend Running (Vite)
+2️⃣ MetaMask Wallet Connection
 
-<img width="500" height="500" alt="B3" src="https://github.com/user-attachments/assets/dd1db246-58c0-434d-b485-024a42868e49" />
+User authorizes Credify to connect with their MetaMask wallet.
 
-
-🔹 Main Application Dashboard
-
-<img width="500" height="500" alt="f1" src="https://github.com/user-attachments/assets/1bffaa42-47cf-4fd6-8465-601376fa4747" />
+<img width="500" height="500" alt="2" src="https://github.com/user-attachments/assets/529dcab8-95c5-4ee9-be7c-81c46269ae06" />
 
 
-🔹 MetaMask Transaction Popup
-
-<img width="500" height="500" alt="f2" src="https://github.com/user-attachments/assets/03f75dfc-e695-4034-9cbf-4d382c464d96" />
 
 
-🔹 KYC Registered (Pending Verification)
+3️⃣ Upload Identity Document
 
-<img width="500" height="500" alt="f3" src="https://github.com/user-attachments/assets/4f0c781b-af4c-4dcd-a9b1-d47b74cb81d9" />
+User uploads an identity document to be processed using AI-based extraction.
 
-
-🔹 Verifier Added Successfully
-
-<img width="500" height="500" alt="f4" src="https://github.com/user-attachments/assets/f1634388-5efb-423f-988c-55820ac74f13" />
+<img width="500" height="500" alt="3" src="https://github.com/user-attachments/assets/3bc524cb-fba1-4d3e-b0ca-2ab236b2a686" />
 
 
-🔹 Verification Attempt (Failed Case)
 
-<img width="500" height="500" alt="f5" src="https://github.com/user-attachments/assets/1ca527bc-6162-42a1-a961-d5dc332c4790" />
+4️⃣ AI-Based Data Extraction
+
+Google Cloud Vision extracts identity details such as name, DOB, and ID number.
+
+<img width="500" height="500" alt="4" src="https://github.com/user-attachments/assets/48994bfc-892f-454c-a501-f6ba64ec9a51" />
+
+
+
+5️⃣ Blockchain Transaction Confirmation
+
+User confirms the transaction in MetaMask to securely anchor extracted data on the blockchain.
+
+<img width="500" height="500" alt="5" src="https://github.com/user-attachments/assets/4b607b6d-43ed-4bb0-b0ef-1ce9f1a3b737" />
+
+
+
+6️⃣ Data Secured on Blockchain
+
+Verification data is successfully secured on-chain, ensuring immutability and transparency.
+<img width="500" height="500" alt="5" src="https://github.com/user-attachments/assets/3976e695-baf5-4092-be97-0e87d0980fe4" />
+
+
+7️⃣ Sample Identity Document Used for Demo
+
+Example ID card used to demonstrate AI-based identity extraction.
+
+![id 1](https://github.com/user-attachments/assets/30fcab0e-4466-4954-8782-9bc10a846981)
+
+
+
 
 
 
