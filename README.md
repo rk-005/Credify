@@ -104,7 +104,8 @@ User authorizes Credify to connect with their MetaMask wallet.
 
 User uploads an identity document to be processed using AI-based extraction.
 
-<img width="500" height="500" alt="3" src="https://github.com/user-attachments/assets/3bc524cb-fba1-4d3e-b0ca-2ab236b2a686" />
+<img width="1051" height="633" alt="3i" src="https://github.com/user-attachments/assets/7913eacc-df45-4a94-9b46-2da3fe2bfbf3" />
+
 
 
 
@@ -112,7 +113,7 @@ User uploads an identity document to be processed using AI-based extraction.
 
 Google Cloud Vision extracts identity details such as name, DOB, and ID number.
 
-<img width="500" height="500" alt="4" src="https://github.com/user-attachments/assets/48994bfc-892f-454c-a501-f6ba64ec9a51" />
+<img width="500" height="500" alt="3" src="https://github.com/user-attachments/assets/3bc524cb-fba1-4d3e-b0ca-2ab236b2a686" />
 
 
 
@@ -120,14 +121,16 @@ Google Cloud Vision extracts identity details such as name, DOB, and ID number.
 
 User confirms the transaction in MetaMask to securely anchor extracted data on the blockchain.
 
-<img width="500" height="500" alt="5" src="https://github.com/user-attachments/assets/4b607b6d-43ed-4bb0-b0ef-1ce9f1a3b737" />
-
+<img width="500" height="500" alt="4" src="https://github.com/user-attachments/assets/48994bfc-892f-454c-a501-f6ba64ec9a51" /
 
 
 6️⃣ Data Secured on Blockchain
 
 Verification data is successfully secured on-chain, ensuring immutability and transparency.
-<img width="500" height="500" alt="5" src="https://github.com/user-attachments/assets/3976e695-baf5-4092-be97-0e87d0980fe4" />
+
+<img width="500" height="500" alt="5" src="https://github.com/user-attachments/assets/4b607b6d-43ed-4bb0-b0ef-1ce9f1a3b737" />
+
+
 
 
 7️⃣ Sample Identity Document Used for Demo
