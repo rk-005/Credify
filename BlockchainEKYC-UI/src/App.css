@@ -250,3 +250,12 @@ button:active {
 .line.done {
   background: linear-gradient(90deg, #6366f1, #22d3ee);
 }
+.metamask-note {
+  margin-top: 10px;
+  font-size: 0.85rem;
+  text-align: center;
+  color: #e94848;            /* Bright warning red */
+  font-weight: 600;
+  opacity: 1;
+}
+
