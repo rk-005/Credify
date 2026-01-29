@@ -1,3 +1,4 @@
+import "./App.css"; 
 import { useState } from "react";
 import { ethers } from "ethers";
 import EKYC_ABI from "./abi/EKYC.json";
