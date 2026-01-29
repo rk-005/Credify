@@ -174,8 +174,14 @@ Expires: December 2013
       </p>
 
       {!account && (
-        <button onClick={connectWallet}>Connect MetaMask</button>
-      )}
+  <>
+    <button onClick={connectWallet}>Connect MetaMask</button>
+
+    <p className="metamask-note">
+      ⚠ Users must have MetaMask installed and set up to use Credify.
+    </p>
+  </>
+)}
 
       {account && (
         <>
