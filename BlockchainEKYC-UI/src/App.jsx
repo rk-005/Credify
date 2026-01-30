@@ -179,7 +179,7 @@ Expires: December 2013
     <button onClick={connectWallet}>Connect MetaMask</button>
 
     <p className="metamask-note">
-      ⚠ Users must have MetaMask installed and set up to use Credify.
+      ⚠ Users must have MetaMask installed and set up to use Credify. Without it, blockchain functionality will not be available.
     </p>
   </>
 )}
