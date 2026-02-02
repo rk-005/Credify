@@ -1,41 +1,71 @@
-🛡️ Credify
-Decentralized Identity Verification using AI & Blockchain
+🛡️ Credify — Decentralized Identity Verification using AI, Blockchain & Firebase
 
-Credify is a decentralized electronic Know Your Customer (eKYC) platform that combines AI-powered document extraction with blockchain-based verification.
-It enables users to securely verify identity documents and optionally anchor proofs on-chain using MetaMask — ensuring transparency, immutability, and user ownership of identity data.
+Credify is a decentralized electronic Know Your Customer (eKYC) platform that combines AI-powered document extraction, blockchain-based verification, and Google Firebase logging to create a secure, transparent, and auditable identity verification system.
 
-The project is built with a modern React (Vite) frontend, Ethereum smart contracts (Hardhat + Solidity), and MetaMask integration.
-For demo and hackathon purposes, the frontend is deployed live on Vercel with a seamless UX.
+The platform enables users to:
+
+Upload identity documents
+
+Extract identity data using Google Cloud Vision AI
+
+Secure cryptographic proofs on the Ethereum blockchain
+
+Log verification events securely using Google Firebase Firestore
+
+This approach ensures immutability (blockchain), auditability (Firebase), and user ownership of identity data.
 
 🌍 Live Demo (Frontend)
 
-🔗 Live URL:
+🔗 Live URL
 👉 https://credify-eta.vercel.app?_vercel_share=YRLJtKe8R61cKCFMzC6gZC3QzACECc2a
 
-The live demo showcases the full UI flow (wallet connection, ID upload, AI extraction, and blockchain-secure step).
-Smart contracts are developed separately and can be run locally using Hardhat.
+The live demo showcases the complete UI flow:
+Wallet connection → ID upload → AI extraction → Blockchain security confirmation.
+
+⚠️ Smart contracts are developed separately and can be run locally using Hardhat.
 
 🚀 Features
 
-🔐 Decentralized KYC workflow
+🔐 Decentralized eKYC workflow
 
 🧾 AI-based identity document text extraction
 
-🧠 Tamper-proof verification concept using blockchain
+🧠 Tamper-proof verification using blockchain hashing
 
 🦊 MetaMask wallet integration
 
 🔗 Ethereum smart contracts (Hardhat)
 
+🔥 Google Firebase Firestore logging (FREE Google tool)
+
 ⚡ Modern React UI with Vite
 
 🌐 Production deployment on Vercel
 
+🧠 Why Firebase is Used (Google Integration)
 
-📁 Project Structure
+Credify uses Google Firebase Firestore to log verification events after a successful or failed blockchain transaction.
 
-<img width="524" height="386" alt="image" src="https://github.com/user-attachments/assets/08c69adb-0399-4bc5-b774-27a7c0706e90" />
+Firebase enables:
 
+📜 Audit logging of identity verification events
+
+⏱️ Timestamped records using Google server timestamps
+
+🔍 Traceability without storing sensitive identity data
+
+☁️ A free, scalable Google-backed backend service
+
+Only non-sensitive metadata is stored:
+
+Wallet address
+
+Verification status (VERIFIED / FAILED)
+
+Timestamp
+
+🔐 No personal document data is stored in Firebase.
+Only cryptographic verification events are logged.
 
 🧰 Tech Stack
 🔗 Blockchain / Backend
@@ -58,16 +88,37 @@ Ethers.js
 
 MetaMask
 
+🤖 AI & Google Services
+
+Google Cloud Vision API (OCR / Text Detection)
+
+Google Firebase Firestore (Verification Logging)
+
 ☁️ Deployment
 
 Vercel (Frontend)
+
+📁 Project Structure
+Credify/
+│
+├── BlockchainEKYC/          # Smart contracts (Hardhat)
+├── BlockchainEKYC-UI/       # React frontend (Vite)
+│   ├── src/
+│   │   ├── services/
+│   │   │   └── logService.js   # Firebase logging logic
+│   │   ├── firebase.js         # Firebase configuration
+│   │   └── App.jsx
+│
+├── screenshots/             # Application & Firebase screenshots
+└── README.md
 
 ⚙️ Run Locally
 git clone https://github.com/rk-005/Credify.git
 cd Credify
 
-🦊 MetaMask Configuration 
-(Please note user needs to have a Metamask account for completing any type of transaction in a Blockchain.)
+🦊 MetaMask Configuration
+
+(Required for blockchain interaction)
 
 Add a custom network in MetaMask:
 
@@ -80,71 +131,64 @@ Chain ID: 31337
 Currency Symbol: ETH
 
 🖼️ Application Screenshots
-
-
-
 1️⃣ Landing Page – Connect Wallet
 
-Initial entry point where users begin the verification flow by connecting their MetaMask wallet.
+Initial entry point where users begin the verification flow.
 
-<img width="500" height="500" alt="image 1" src="https://github.com/user-attachments/assets/c6b02a3e-cf0b-4f4f-aae4-45ef6a02408c" />
-
-
+📸 screenshots/landing.png
 
 2️⃣ MetaMask Wallet Connection
 
-User authorizes Credify to connect with their MetaMask wallet.
+User authorizes Credify to connect with their wallet.
 
-<img width="500" height="500" alt="2" src="https://github.com/user-attachments/assets/529dcab8-95c5-4ee9-be7c-81c46269ae06" />
-
-
-
+📸 screenshots/metamask-connect.png
 
 3️⃣ Upload Identity Document
 
-User uploads an identity document to be processed using AI-based extraction.
+User uploads an ID for AI-based processing.
 
-<img width="500" height="500" alt="3i" src="https://github.com/user-attachments/assets/7913eacc-df45-4a94-9b46-2da3fe2bfbf3" />
+📸 screenshots/upload-id.png
 
-
-
-
-4️⃣ AI-Based Data Extraction
+4️⃣ AI-Based Data Extraction (Google Vision)
 
 Google Cloud Vision extracts identity details such as name, DOB, and ID number.
 
-<img width="500" height="500" alt="3" src="https://github.com/user-attachments/assets/3bc524cb-fba1-4d3e-b0ca-2ab236b2a686" />
-
-
+📸 screenshots/ai-extraction.png
 
 5️⃣ Blockchain Transaction Confirmation
 
-User confirms the transaction in MetaMask to securely anchor extracted data on the blockchain.
+User confirms the transaction in MetaMask.
 
-<img width="500" height="500" alt="4" src="https://github.com/user-attachments/assets/28bf2a3c-9952-4d9a-a00f-67e3eb2ba967" />
-
-
+📸 screenshots/blockchain-confirm.png
 
 6️⃣ Data Secured on Blockchain
 
-Verification data is successfully secured on-chain, ensuring immutability and transparency.
+Hashed identity proof successfully anchored on-chain.
 
-<img width="500" height="500" alt="5" src="https://github.com/user-attachments/assets/4b607b6d-43ed-4bb0-b0ef-1ce9f1a3b737" />
+📸 screenshots/blockchain-success.png
 
+7️⃣ Firebase Firestore Verification Log (Google Tool Proof)
 
+Verification event logged in Google Firebase Firestore with wallet address, status, and timestamp.
 
+📸 screenshots/firebase-firestore-log.png
 
-7️⃣ Sample Identity Document Used for Demo
+8️⃣ Sample Identity Document Used for Demo
 
-Example ID card used to demonstrate AI-based identity extraction.
+Example ID card used for testing AI extraction.
 
-![id 1](https://github.com/user-attachments/assets/30fcab0e-4466-4954-8782-9bc10a846981)
+📸 screenshots/sample-id.png
 
+🔐 Security & Privacy Notes
 
+No raw identity documents are stored on-chain
 
+No personal data is stored in Firebase
 
+Only cryptographic hashes and verification metadata are recorded
 
+Users retain full control via MetaMask
 
+🏁 Conclusion
 
-
-
+Credify demonstrates how AI, blockchain, and Google cloud tools can be combined to build a secure, decentralized, and auditable identity verification system suitable for real-world KYC use cases
