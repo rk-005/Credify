@@ -1,3 +1,5 @@
+import { logVerification } from "./services/logService";
+import "./App.css"; 
 import { useState } from "react";
 import { ethers } from "ethers";
 import EKYC_ABI from "./abi/EKYC.json";
@@ -92,26 +94,32 @@ Expires: December 2013
 
   /* ---------------- BLOCKCHAIN ---------------- */
 
-  const registerOnBlockchain = async () => {
-    if (!contract || !extractedText) {
-      setStatus("❌ Missing data");
-      return;
-    }
+ const registerOnBlockchain = async () => {
+  if (!contract || !extractedText) {
+    setStatus("❌ Missing data");
+    return;
+  }
 
-    try {
-      const hash = ethers.keccak256(
-        ethers.toUtf8Bytes(extractedText)
-      );
+  try {
+    const hash = ethers.keccak256(
+      ethers.toUtf8Bytes(extractedText)
+    );
 
-      setStatus("⏳ Sending hash to blockchain...");
-      const tx = await contract.registerUser(hash);
-      await tx.wait();
+    setStatus("⏳ Sending hash to blockchain...");
+    const tx = await contract.registerUser(hash);
+    await tx.wait();
 
-      setStatus("✅ Data secured on blockchain");
-    } catch {
-      setStatus("❌ Blockchain transaction failed");
-    }
-  };
+    // ✅ GOOGLE FIREBASE (FREE) LOGGING
+    await logVerification(account, "VERIFIED");
+
+    setStatus("✅ Data secured on blockchain");
+  } catch {
+    await logVerification(account, "FAILED");
+    setStatus("❌ Blockchain transaction failed");
+  }
+}; // ✅ THIS WAS MISSING
+
+
 
   /* ---------------- HELPERS ---------------- */
 
@@ -174,8 +182,14 @@ Expires: December 2013
       </p>
 
       {!account && (
-        <button onClick={connectWallet}>Connect MetaMask</button>
-      )}
+  <>
+    <button onClick={connectWallet}>Connect MetaMask</button>
+
+    <p className="metamask-note">
+      ⚠ Users must have MetaMask installed and set up to use Credify.
+    </p>
+  </>
+)}
 
       {account && (
         <>
