@@ -148,7 +148,7 @@ User authorizes Credify to connect with their wallet.
 
 User uploads an ID for AI-based processing.
 
-<img width="1502" height="955" alt="Screenshot 2026-02-02 123043" src="https://github.com/user-attachments/assets/93608b13-0b9e-4eaf-b2d0-e63ca1c87947" />
+<img width="500" height="500" alt="Screenshot 2026-02-02 123043" src="https://github.com/user-attachments/assets/93608b13-0b9e-4eaf-b2d0-e63ca1c87947" />
 
 
 4️⃣ AI-Based Data Extraction (Google Vision)
@@ -174,7 +174,7 @@ Hashed identity proof successfully anchored on-chain.
 
 Verification event logged in Google Firebase Firestore with wallet address, status, and timestamp.
 
-<img width="1822" height="967" alt="firbase" src="https://github.com/user-attachments/assets/5d6634ba-0c05-4a92-afad-6c64906b34ee" />
+<img width="500" height="500" alt="firbase" src="https://github.com/user-attachments/assets/5d6634ba-0c05-4a92-afad-6c64906b34ee" />
 
 
 8️⃣ Sample Identity Document Used for Demo
