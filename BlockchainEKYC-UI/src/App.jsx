@@ -1,5 +1,5 @@
 import { logVerification } from "./services/logService";
-import "./App.css"; 
+import "./App.css";
 import { useState } from "react";
 import { ethers } from "ethers";
 import EKYC_ABI from "./abi/EKYC.json";
@@ -19,7 +19,7 @@ function App() {
   const forceHardhatNetwork = async () => {
     await window.ethereum.request({
       method: "wallet_switchEthereumChain",
-      params: [{ chainId: "0x7A69" }],
+      params: [{ chainId: "0x7A69" }], // Hardhat local
     });
   };
 
@@ -71,7 +71,9 @@ function App() {
 
     const text =
       visionResponse?.fullTextAnnotation?.text ||
-      visionResponse?.textAnnotations?.map((t) => t.description).join("\n") ||
+      visionResponse?.textAnnotations
+        ?.map((t) => t.description)
+        .join("\n") ||
       "";
 
     if (!text.trim()) {
@@ -94,32 +96,30 @@ Expires: December 2013
 
   /* ---------------- BLOCKCHAIN ---------------- */
 
- const registerOnBlockchain = async () => {
-  if (!contract || !extractedText) {
-    setStatus("❌ Missing data");
-    return;
-  }
+  const registerOnBlockchain = async () => {
+    if (!contract || !extractedText) {
+      setStatus("❌ Missing data");
+      return;
+    }
 
-  try {
-    const hash = ethers.keccak256(
-      ethers.toUtf8Bytes(extractedText)
-    );
+    try {
+      const hash = ethers.keccak256(
+        ethers.toUtf8Bytes(extractedText)
+      );
 
-    setStatus("⏳ Sending hash to blockchain...");
-    const tx = await contract.registerUser(hash);
-    await tx.wait();
+      setStatus("⏳ Sending hash to blockchain...");
+      const tx = await contract.registerUser(hash);
+      await tx.wait();
 
-    // ✅ GOOGLE FIREBASE (FREE) LOGGING
-    await logVerification(account, "VERIFIED");
+      // ✅ GOOGLE FIREBASE (FREE) LOGGING
+      await logVerification(account, "VERIFIED");
 
-    setStatus("✅ Data secured on blockchain");
-  } catch {
-    await logVerification(account, "FAILED");
-    setStatus("❌ Blockchain transaction failed");
-  }
-}; // ✅ THIS WAS MISSING
-
-
+      setStatus("✅ Data secured on blockchain");
+    } catch {
+      await logVerification(account, "FAILED");
+      setStatus("❌ Blockchain transaction failed");
+    }
+  };
 
   /* ---------------- HELPERS ---------------- */
 
@@ -135,93 +135,112 @@ Expires: December 2013
   /* ---------------- UI ---------------- */
 
   return (
-  <div>
-    <h1>Credify</h1>
+    <div>
+      <h1>Credify</h1>
 
-    {/* Step Progress */}
-    <div className="stepper">
-      <div className={`step ${account ? "done" : "active"}`}>
-        <span>1</span>
-        <p>Connect Wallet</p>
+      {/* Step Progress */}
+      <div className="stepper">
+        <div className={`step ${account ? "done" : "active"}`}>
+          <span>1</span>
+          <p>Connect Wallet</p>
+        </div>
+
+        <div className={`line ${account ? "done" : ""}`} />
+
+        <div
+          className={`step ${
+            imageFile ? "done" : account ? "active" : ""
+          }`}
+        >
+          <span>2</span>
+          <p>Upload ID</p>
+        </div>
+
+        <div className={`line ${imageFile ? "done" : ""}`} />
+
+        <div
+          className={`step ${
+            extractedText ? "done" : imageFile ? "active" : ""
+          }`}
+        >
+          <span>3</span>
+          <p>Extract</p>
+        </div>
+
+        <div className={`line ${extractedText ? "done" : ""}`} />
+
+        <div
+          className={`step ${
+            status.includes("secured")
+              ? "done"
+              : extractedText
+              ? "active"
+              : ""
+          }`}
+        >
+          <span>4</span>
+          <p>Secure</p>
+        </div>
       </div>
 
-      <div className={`line ${account ? "done" : ""}`} />
+      <p className="status-text">AI-Powered Blockchain</p>
 
-      <div className={`step ${imageFile ? "done" : account ? "active" : ""}`}>
-        <span>2</span>
-        <p>Upload ID</p>
-      </div>
+      {/* MAIN CARD */}
+      <div className="card">
+        <h2>AI Document Verification</h2>
+        <p>
+          Credify uses Google Cloud Vision to extract identity
+          information and secure a cryptographic proof on blockchain.
+        </p>
 
-      <div className={`line ${imageFile ? "done" : ""}`} />
+        {!account && (
+          <>
+            <button onClick={connectWallet}>Connect MetaMask</button>
 
-      <div className={`step ${extractedText ? "done" : imageFile ? "active" : ""}`}>
-        <span>3</span>
-        <p>Extract</p>
-      </div>
+            <p className="metamask-note">
+              ⚠ Users must have MetaMask installed and set up to use
+              Credify. Without it, blockchain functionality will not
+              be available.
+            </p>
+          </>
+        )}
 
-      <div className={`line ${extractedText ? "done" : ""}`} />
+        {account && (
+          <>
+            <p>
+              <b>Connected:</b> {account}
+            </p>
 
-      <div
-        className={`step ${
-          status.includes("secured") ? "done" : extractedText ? "active" : ""
-        }`}
-      >
-        <span>4</span>
-        <p>Secure</p>
+            <input
+              type="file"
+              accept="image/*"
+              onChange={(e) =>
+                setImageFile(e.target.files[0])
+              }
+            />
+
+            <button onClick={extractTextFromImage}>
+              Extract Using Google AI
+            </button>
+
+            {extractedText && (
+              <>
+                <pre className="data-box">
+                  {extractedText}
+                </pre>
+
+                <button onClick={registerOnBlockchain}>
+                  Secure on Blockchain
+                </button>
+              </>
+            )}
+
+            {status && <div className="status">{status}</div>}
+          </>
+        )}
       </div>
     </div>
-
-    <p className="status-text">AI-Powered Blockchain</p>
-
-    {/* MAIN CARD */}
-    <div className="card">
-      <h2>AI Document Verification</h2>
-      <p>
-        Credify uses Google Cloud Vision to extract identity
-        information and secure a cryptographic proof on blockchain.
-      </p>
-
-      {!account && (
-  <>
-    <button onClick={connectWallet}>Connect MetaMask</button>
-
-    <p className="metamask-note">
-      ⚠ Users must have MetaMask installed and set up to use Credify.
-    </p>
-  </>
-)}
-
-      {account && (
-        <>
-          <p><b>Connected:</b> {account}</p>
-
-          <input
-            type="file"
-            accept="image/*"
-            onChange={(e) => setImageFile(e.target.files[0])}
-          />
-
-          <button onClick={extractTextFromImage}>
-            Extract Using Google AI
-          </button>
-
-          {extractedText && (
-            <>
-              <pre className="data-box">{extractedText}</pre>
-
-              <button onClick={registerOnBlockchain}>
-                Secure on Blockchain
-              </button>
-            </>
-          )}
-
-          {status && <div className="status">{status}</div>}
-        </>
-      )}
-    </div>
-  </div>
-);
-
+  );
 }
 
 export default App;
