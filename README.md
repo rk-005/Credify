@@ -99,18 +99,8 @@ Google Firebase Firestore (Verification Logging)
 Vercel (Frontend)
 
 📁 Project Structure
-Credify/
-│
-├── BlockchainEKYC/          # Smart contracts (Hardhat)
-├── BlockchainEKYC-UI/       # React frontend (Vite)
-│   ├── src/
-│   │   ├── services/
-│   │   │   └── logService.js   # Firebase logging logic
-│   │   ├── firebase.js         # Firebase configuration
-│   │   └── App.jsx
-│
-├── screenshots/             # Application & Firebase screenshots
-└── README.md
+<img width="500" height="500" alt="app structure" src="https://github.com/user-attachments/assets/93ab136f-21eb-4c72-86e6-39eccaacdd51" />
+
 
 ⚙️ Run Locally
 git clone https://github.com/rk-005/Credify.git
@@ -135,13 +125,14 @@ Currency Symbol: ETH
 
 Initial entry point where users begin the verification flow.
 
-![WhatsApp Image 2026-01-28 at 11 20 05 PM (1)](https://github.com/user-attachments/assets/53befd65-9b5b-4d72-a645-ddf891cf6b00)
+![1 (2)](https://github.com/user-attachments/assets/51d6e799-f450-485c-88f9-195830cf243c)
+
 
 2️⃣ MetaMask Wallet Connection
 
 User authorizes Credify to connect with their wallet.
 
-![WhatsApp Image 2026-01-28 at 11 20 05 PM (2)](https://github.com/user-attachments/assets/dec5c90e-245b-401c-89d6-e741a3f00c7e)
+![2](https://github.com/user-attachments/assets/e15ae296-47c5-485c-99f3-2610786fdb2a)
 
 
 3️⃣ Upload Identity Document
